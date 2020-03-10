@@ -24,7 +24,9 @@ def add_curve( points, x0, y0, x1, y1, x2, y2, x3, y3, step, curve_type ):
     while i <= 1:
         xcor = ax * math.pow(i, 3) + bx * math.pow(i, 2) + cx * i + dx
         ycor = ay * math.pow(i, 3) + by * math.pow(i, 2) + cy * i + dy
-        add_point(points, xcor, ycor)
+        xcor1 = ax * math.pow(i + step, 3) + bx * math.pow(i + step, 2) + cx * (i + step) + dx
+        ycor1 = ay * math.pow(i + step, 3) + by * math.pow(i + step, 2) + cy * (i + step) + dy
+        add_edge(points, xcor, ycor, 0, xcor1, ycor1, 0)
         i += step
 
 
